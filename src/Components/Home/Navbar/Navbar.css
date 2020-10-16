@@ -1,0 +1,13 @@
+.nav-link{
+    font-weight: bold;
+}
+.nav-link:hover {
+    border-bottom: 3px solid #7AB259;
+    /* text-decoration: underline;
+    text-decoration-color:  lightgreen;   */
+}
+.active{
+    border-bottom: 3px solid #7AB259;
+    /* text-decoration: underline;
+    text-decoration-color:  lightgreen;   */
+}

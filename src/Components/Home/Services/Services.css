@@ -1,0 +1,14 @@
+.service .card{
+    border: 0;
+    height: 90%;
+}
+
+.service .card-header{
+    border: 0;
+    background-color: transparent;
+}
+.card:hover{
+    box-shadow: 0 0 3rem lightgrey;
+    border-radius: 5px;
+  
+  }

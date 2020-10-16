@@ -1,0 +1,37 @@
+.banner {
+    max-width: 100%;
+    max-height: 100%;
+    position: relative;
+    background: #FBD062;
+
+}
+    .banner::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 0;
+      border-bottom: 70px solid #fff;
+      border-left: 1349px solid transparent;
+      border-right: 0px solid transparent;
+    
+    }
+
+
+/* .banner-wrap {
+    position:relative;
+}
+.banner::after { 
+    content: "";
+    display:block;
+    background: #FBD062;
+    width:130%;
+    height:160%;
+    position:absolute;
+    left:-30%;
+    top:-60%;
+    z-index:-1;
+    transform: rotate(-2deg);
+   
+} */

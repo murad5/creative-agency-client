@@ -1,0 +1,13 @@
+.customer-service .card{
+    border: 0;
+    border-radius:10px;
+}
+.customer-service .card-header{
+    border: 0;
+    background-color: transparent;
+}
+.status{
+    height: 30px;
+    width:80px;
+    border-radius: 5px;
+}

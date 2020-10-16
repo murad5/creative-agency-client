@@ -1,0 +1,21 @@
+.loginArea{
+    margin: auto;
+    height: 350px;
+    width: 450px;
+    background-color: white;
+    align-items: center;
+}
+.social{
+    width: 350px;
+    height: 35px;
+    border-radius: 20px;
+    outline: none;
+    background-color: white;
+    border: 1px solid gray;
+}
+.socialImage{
+    left: 505px;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+}

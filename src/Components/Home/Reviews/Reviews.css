@@ -1,0 +1,13 @@
+.reviews .card{
+  border: 1px solid lightgray;
+  height: 90%;
+ 
+}
+
+.reviews .card-header{
+    border: 0;
+    background-color: transparent;
+}
+.reviews .card-body{
+  margin-top:'5px'
+}
