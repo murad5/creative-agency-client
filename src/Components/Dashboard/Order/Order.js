@@ -83,20 +83,20 @@ const Order = () => {
                 </div>
                 <div className="form-group">
                   
-                    <input type="text" className="form-control" name="title" onBlur={handleBlur}  placeholder="Service" />
+                    <input type="text" className="form-control" name="title" onBlur={handleBlur}  placeholder="Service" required  />
                 </div>
                 <div className="form-group">
                   
-                    <textarea type="text" className="form-control" name="description" onBlur={handleBlur}   placeholder="Project Details" />
+                    <textarea type="text" className="form-control" name="description" onBlur={handleBlur}   placeholder="Project Details" required  />
                 </div>
                <div className="row">
                         <div className="col mt-2 pt-2">
-                            <input type="text" className="form-control" onBlur={handleBlur} name="price" placeholder="Price" />
+                            <input type="text" className="form-control" onBlur={handleBlur} name="price" placeholder="Price" required  />
                         </div>
                         <div className="col mt-0 pt-0">
-                            <input type="file" onChange={handleFileChange} id="upload-btn"  hidden/>
-                            <label className='upload' htmlFor="upload-btn"><FontAwesomeIcon icon={faCloudUploadAlt} /> Upload Project file</label>
-                            
+                            <input type="file" onChange={handleFileChange} id="upload-btn" required  hidden/>
+                            <label className='upload' htmlFor="upload-btn"><FontAwesomeIcon icon={faCloudUploadAlt} /> Upload Project file *</label>
+                           
                         </div>
                </div>
                 <div>

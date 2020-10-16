@@ -43,10 +43,8 @@ const Login = () => {
               email: email,
               success: true
             }
-          console.log(signedInUser);
-          setLoggedInUser(signedInUser);
-          storeAuthToken();
-      
+            handleResponse(signedInUser, true);
+             
           })
           .catch(err => {
             console.log(err);
@@ -54,20 +52,19 @@ const Login = () => {
           })
       
       }
-      const storeAuthToken = () => {
-        firebase.auth().currentUser.getIdToken(/* forceRefresh */ true)
-          .then(function (idToken) {
-            sessionStorage.setItem('token', idToken);
-            history.replace(from);
-          }).catch(function (error) {
-            // Handle error
-          });
-      }
 
-     
-      console.log(loggedInUser)
+      const handleResponse = (res, redirect) => {
+      
+        setLoggedInUser(res);
     
+       if (redirect) {
+          history.replace(from);
+        }
+    
+      }
+     
 
+    
 
     return (
         <div style={style}>

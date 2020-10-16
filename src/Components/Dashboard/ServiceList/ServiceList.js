@@ -44,19 +44,19 @@ const ServiceList = () => {
       
 
     return (
-        <section className="container-fluid row"  >
+        <section className="container-fluid row text-md-left text-center"  >
             
         <div className="col-md-2 col-sm-12" >
              <Sidebar></Sidebar>
         </div>
          
-        <div className="col-md-10 col-sm-12 mr-0 "style={{backgroundColor: " #E5E5E5" ,width:'100%'}}  >
+        <div className="col-md-10 col-sm-12 mr-0  "style={{backgroundColor: " #E5E5E5"}}  >
             <div className=" d-flex justify-content-between p-2" >
-                <h5 className="text-brand">Service List</h5>
+                <h5 >Service List</h5>
                  <h6> <img style={{height:'40px', width:'40px', borderRadius:'50%'}} src={loggedInUser.photo} alt=""/> {loggedInUser.name}</h6>
             </div>
-          
-            <table className="table table-borderless bg-white" style={{width:'100%'}}>
+            <div class="table-responsive-sm">
+            <table className="table table-borderless bg-white" >
                 <thead className="thead-light">
                     <tr>
                     <th scope="col">Name</th>
@@ -68,10 +68,19 @@ const ServiceList = () => {
                 </thead>
                 <tbody>
                     {
+                        service.length===0 &&
+                        <div class="d-flex justify-content-center mt-5">
+                        <div class="spinner-border" role="status"></div>
+                        <strong >Loading...</strong>
+                      </div>
+                        
+                    }
+                    {
                         service.map(service =><ServiceListDetails key={service._id} setStatus={handleStatus} service={service} ></ServiceListDetails>)
                     }
                 </tbody>
                 </table>
+                </div>
         
             
         </div>

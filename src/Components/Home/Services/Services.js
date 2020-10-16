@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import mobile from '../../../images/icons/service2.png'
-import graphics from '../../../images/icons/service1.png'
-import web from '../../../images/icons/service3.png'
 import Service from '../Service/Service';
 import './Services.css'
 import { useEffect } from 'react';
+
 
 
 
@@ -23,6 +21,14 @@ const Services = () => {
         <section className="service my-5">
            <div className="container">
                     <h2 className="text-center">Provide awesome <span style={{color:'#7AB259'}}>services</span></h2>
+                    {
+                        services.length===0 &&
+                        <div class="d-flex justify-content-center mt-5">
+                        <div class="spinner-border" role="status"></div>
+                        <strong >Loading...</strong>
+                      </div>
+                        
+                    }
                     <div className="row mt-5">
                         {
                                 services.map(service => <Service key={service._id} service={service}></Service>)

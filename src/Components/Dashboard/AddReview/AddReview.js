@@ -40,7 +40,7 @@ const AddService = () => {
 
     }
     return (
-        <section className="container-fluid row">
+        <section className="container-fluid row text-md-left text-center">
             
             <div className="col-md-2 col-sm-12">
                  <Sidebar></Sidebar>

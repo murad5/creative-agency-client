@@ -40,7 +40,7 @@ const MakeAdmin = () => {
 
 
     return (
-        <section className="row">
+        <section className="row text-md-left text-center">
             <div className="col-md-2">
                 <Sidebar></Sidebar>
             </div>

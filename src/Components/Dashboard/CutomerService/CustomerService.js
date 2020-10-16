@@ -14,7 +14,7 @@ const CustomerService = () => {
 
     })
     return (
-      <section className="customer-service">
+      <section className="customer-service text-md-left text-center">
           <div className="row">
             <div className="col-md-2">.
                  <Sidebar></Sidebar>
@@ -24,8 +24,15 @@ const CustomerService = () => {
                         <h5 className="text-brand">Order</h5>
                         <h6> <img style={{height:'40px', width:'40px', borderRadius:'50%'}} src={loggedInUser.photo} alt=""/> {loggedInUser.name}</h6>
                 </div>
-                <div style={{backgroundColor: " #E5E5E5" ,padding: '20px',height:'600px',}} >
-             
+                <div style={{backgroundColor: " #E5E5E5" , padding: '20px', height:'100%',}} >
+                    {
+                        orders.length===0 &&
+                        <div className="d-flex justify-content-center mt-5">
+                        <div className="spinner-border" role="status"></div>
+                        <strong >Loading...</strong>
+                        </div>
+                        
+                    }
 
                         {
                             orders.map(order =>(
@@ -36,7 +43,7 @@ const CustomerService = () => {
                                 
                                     <img className="mx-3 d-flex " src={`data:image/png;base64,${order.image.img}`} width="60" alt=""/> 
                                     
-                                    <div className="status text-center" style={{backgroundColor:' #FFE3E3'}}>{order.status}</div>
+                                    <div className="status text-center text-bold" style={{backgroundColor:' #E5E5E5'}}>{order.status}</div>
                                     
                                 </div>
                                 <div className="card-body ">

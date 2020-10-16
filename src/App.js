@@ -16,6 +16,7 @@ import MakeAdmin from './Components/Dashboard/MakeAdmin/MakeAdmin';
 import AddReview from './Components/Dashboard/AddReview/AddReview'
 import AddService from './Components/Dashboard/AddService/AddService';
 import Order from './Components/Dashboard/Order/Order';
+import NoRoute from './Components/NoRoute/NoRoute';
 export const UserContext = createContext();
 
 function App() {
@@ -54,7 +55,9 @@ function App() {
           <Route path="/makeAAdmin">
               <MakeAdmin></MakeAdmin>
           </Route>
-
+          <Route path="*">
+            <NoRoute></NoRoute>
+          </Route>
 
         </Switch>
       </Router>
