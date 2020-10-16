@@ -2,24 +2,18 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { UserContext } from '../../../App';
 import Sidebar from '../Sidebar/Sidebar';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
+import './Order.css'
 
 
 const Order = () => {
     const { id } = useParams();
     const [loggedInUser, setLoggedInUser] = useContext(UserContext)
-    const [info, setInfo] = useState({});
     const [file, setFile] = useState(null);
-
     const history = useHistory();
 
-    const [service, setService] = useState([]);
 
-    useEffect(() => {
-        fetch('http://localhost:5000/service/' + id)
-            .then(res => res.json())
-            .then(result => setService(result))
-
-    }, [id]);
 
     const handleBlur = (e) => {
         loggedInUser[e.target.name] = e.target.value;
@@ -32,30 +26,30 @@ const Order = () => {
 
 
     const handleSubmit = (e) => {
-
-        const activities = {
-            name: loggedInUser.name,
-            email: loggedInUser.email,
-            date: loggedInUser.date,
-            description: service.description,
-            service: service.title,
-            image: service.image,
-            price: loggedInUser.price,
-            status: 'Pending'
-        }
-
-        fetch('http://localhost:5000/addOrder', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(activities)
-        })
-            .then(res => res.json())
-            .then(data => {
-                if(data){
-                    history.push("/orderList")
-                }
-               
+              
+            const formData = new FormData()
+            console.log(loggedInUser);
+            formData.append('file', file);
+            formData.append('name', loggedInUser.name);
+            formData.append('email', loggedInUser.email);
+            formData.append('title', loggedInUser.title);
+            formData.append('description', loggedInUser.description);
+            formData.append('price', loggedInUser.price);
+            formData.append('status','pending')
+    
+            fetch('http://localhost:5000/addOrder', {
+                method: 'POST',
+                body: formData
             })
+                .then(response => response.json())
+                .then(data => {
+                    if(data){
+                        history.push('/orderList')
+                    }
+                })
+                .catch(error => {
+                    console.error(error)
+                })    
 
         e.preventDefault()
 
@@ -69,7 +63,6 @@ const Order = () => {
         <div className="col-md-2 col-sm-6 " >
            
                  <Sidebar></Sidebar>
-            
 
         </div>
        
@@ -79,7 +72,7 @@ const Order = () => {
                     <h6> <img style={{height:'40px', width:'40px', borderRadius:'50%'}} src={loggedInUser.photo} alt=""/> {loggedInUser.name}</h6>
                 </div>
         
-            <form className="bg-white p-3" style={{borderRadius:'10px'}} onSubmit={handleSubmit}  >
+            <form className=" p-3 col-md-8" style={{borderRadius:'10px'}} onSubmit={handleSubmit}  >
                 <div className="form-group">
                   
                     <input type="text" className="form-control" name="name" defaultValue={loggedInUser.name} placeholder="Your Name / Company's Name" />
@@ -90,16 +83,22 @@ const Order = () => {
                 </div>
                 <div className="form-group">
                   
-                    <input type="text" className="form-control" name="service" defaultValue={service.title} placeholder="Service" />
+                    <input type="text" className="form-control" name="title" onBlur={handleBlur}  placeholder="Service" />
                 </div>
                 <div className="form-group">
                   
-                    <textarea type="text" className="form-control" name="details" defaultValue={service.description}  placeholder="Project Details" />
+                    <textarea type="text" className="form-control" name="description" onBlur={handleBlur}   placeholder="Project Details" />
                 </div>
-                <div className="form-group">
-                    <input type="text" className="form-control" onBlur={handleBlur} name="price" placeholder="Price" />
-                </div>
-               
+               <div className="row">
+                        <div className="col mt-2 pt-2">
+                            <input type="text" className="form-control" onBlur={handleBlur} name="price" placeholder="Price" />
+                        </div>
+                        <div className="col mt-0 pt-0">
+                            <input type="file" onChange={handleFileChange} id="upload-btn"  hidden/>
+                            <label className='upload' htmlFor="upload-btn"><FontAwesomeIcon icon={faCloudUploadAlt} /> Upload Project file</label>
+                            
+                        </div>
+               </div>
                 <div>
                 <button type="submit" className="btn btn-dark ">Submit</button>
                 </div>

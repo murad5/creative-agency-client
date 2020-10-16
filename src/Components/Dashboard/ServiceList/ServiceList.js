@@ -51,7 +51,10 @@ const ServiceList = () => {
         </div>
          
         <div className="col-md-10 col-sm-12 mr-0 "style={{backgroundColor: " #E5E5E5" ,width:'100%'}}  >
-            <h5 className="text-brand">Service List</h5>
+            <div className=" d-flex justify-content-between p-2" >
+                <h5 className="text-brand">Service List</h5>
+                 <h6> <img style={{height:'40px', width:'40px', borderRadius:'50%'}} src={loggedInUser.photo} alt=""/> {loggedInUser.name}</h6>
+            </div>
           
             <table className="table table-borderless bg-white" style={{width:'100%'}}>
                 <thead className="thead-light">

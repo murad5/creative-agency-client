@@ -47,8 +47,11 @@ const AddService = () => {
             </div>
              
             <div className="col-md-10 col-sm-12 p-4 pr-5 ">
-                <h5 className="text-brand">Review</h5>
-                <div style={{backgroundColor: " #E5E5E5" ,padding: '20px',height:'600px',}} >
+            <div className=" d-flex justify-content-between p-2" >
+                        <h5 className="text-brand">Review</h5>
+                        <h6> <img style={{height:'40px', width:'40px', borderRadius:'50%'}} src={loggedInUser.photo} alt=""/> {loggedInUser.name}</h6>
+                </div>
+                <div style={{backgroundColor: " #E5E5E5" ,padding: '20px', height:'100%',}} >
                 <form className="bg-white p-3" style={{borderRadius:'10px'}}  onSubmit={handleSubmit}>
                     <div className="form-group">
                       

@@ -3,8 +3,7 @@ import logo from '../../../images/logos/logo.png'
 import { Link } from 'react-router-dom';
 import './Sidebar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faListAlt, faShoppingCart,faCommentAlt, faBoxOpen, faCommentDots ,faSignOutAlt, faCalendar, faHome, faGripHorizontal, faUserPlus, faPlus } from '@fortawesome/free-solid-svg-icons';
-import { faFileAlt } from '@fortawesome/free-regular-svg-icons'
+import { faListAlt, faShoppingCart,faCommentAlt,faSignOutAlt,  faUserPlus, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { UserContext } from '../../../App';
 
 const Sidebar = () => {

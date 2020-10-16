@@ -22,7 +22,9 @@ const MakeAdmin = () => {
         })
             .then(res => res.json())
             .then(data => {
-                history.push("/makeAAdmin")
+               if(data){
+                   alert('Successfully to admin list')
+               }
             })
          
             e.preventDefault()

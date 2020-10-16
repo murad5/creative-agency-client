@@ -1,0 +1,10 @@
+.upload {
+    background-color: rgb(174, 236, 200);
+    color: green;
+    padding: 0.5rem;
+    font-family: sans-serif;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    border: 1px solid green;
+    margin-top: 1rem;
+    }

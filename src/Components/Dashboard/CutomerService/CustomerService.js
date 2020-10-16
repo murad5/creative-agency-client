@@ -20,13 +20,16 @@ const CustomerService = () => {
                  <Sidebar></Sidebar>
             </div>
             <div className="col-md-10 col-sm-12 p-4 pr-5 ">
-                <h5 className="pt-3 text-brand">Orders</h5>
+                 <div className=" d-flex justify-content-between p-2" >
+                        <h5 className="text-brand">Order</h5>
+                        <h6> <img style={{height:'40px', width:'40px', borderRadius:'50%'}} src={loggedInUser.photo} alt=""/> {loggedInUser.name}</h6>
+                </div>
                 <div style={{backgroundColor: " #E5E5E5" ,padding: '20px',height:'600px',}} >
              
 
                         {
                             orders.map(order =>(
-                                <div className="card-deck col-md-4 float-left mb-3">
+                                <div key={order._id} className="card-deck col-md-4 float-left mb-3">
                                 <div className="card ">
         
                                 <div className="card-header d-flex justify-content-between">
