@@ -1,4 +1,4 @@
-A full-stack website. where Clients can place order for service.
+A full-stack responsive website. where Clients can place orders for service.
 
 ## Features 
 * Clients can place order for service and can see their own service list and status 
